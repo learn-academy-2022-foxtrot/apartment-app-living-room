@@ -29,7 +29,7 @@ const apartments = [
     street: "123 Conch Street",
     city: "Bikini Bottom",
     state: "Pacific Ocean",
-    manager: "Mr. Tentacles", 
+    manager: "Mr. Tentacles",
     email: "clarinetluver@example.com",
     price: 2001,
     bedrooms: 3,

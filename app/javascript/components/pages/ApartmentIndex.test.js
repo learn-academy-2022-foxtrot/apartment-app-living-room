@@ -5,7 +5,6 @@ import mockApartments from "../mockApartments"
 import { BrowserRouter } from "react-router-dom"
 
 describe("<ApartmentIndex />", () => {
-
   it("renders without crashing", () => {
     const div = document.createElement("div")
     render(<ApartmentIndex />, div)
