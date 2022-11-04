@@ -32,4 +32,39 @@ RSpec.describe "Apartments", type: :request do
       expect(apartment["email"]).to eq "mjones@example.com"
     end
   end
+
+  describe "POST /create" do
+    it "creates an apartment listing" do
+      apartment_params = {
+        apartment: {
+          street: "Blender Bottle Blvd",
+          city: "Gainsville",
+          state: "Florida",
+          manager: "Rob Gains",
+          email: "gymislife@example.com",
+          price: "2,500",
+          bedrooms: 3,
+          bathrooms: 3,
+          pets: "Yes",
+          image: "https://img.zumpercdn.com/523001002/1280x960?fit=crop&h=135&w=414",
+          user_id: user.id
+        }
+      }
+
+      post "/apartments", params: apartment_params
+      JSON.parse(response.body)
+      apartment = Apartment.first
+      expect(response).to have_http_status(200)
+      expect(apartment.street).to eq "Blender Bottle Blvd"
+      expect(apartment.city).to eq "Gainsville"
+      expect(apartment.state).to eq "Florida"
+      expect(apartment.manager).to eq "Rob Gains"
+      expect(apartment.email).to eq "gymislife@example.com"
+      expect(apartment.price).to eq "2,500"
+      expect(apartment.bedrooms).to eq 3
+      expect(apartment.bathrooms).to eq 3
+      expect(apartment.pets).to eq "Yes"
+      expect(apartment.image).to eq "https://img.zumpercdn.com/523001002/1280x960?fit=crop&h=135&w=414"
+    end
+  end
 end
