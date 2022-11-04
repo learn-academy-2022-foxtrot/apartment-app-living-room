@@ -52,7 +52,7 @@ RSpec.describe "Apartments", type: :request do
       }
 
       post "/apartments", params: apartment_params
-      apartment = JSON.parse(response.body)
+      JSON.parse(response.body)
       apartment = Apartment.first
       expect(response).to have_http_status(200)
       expect(apartment.street).to eq "Blender Bottle Blvd"
