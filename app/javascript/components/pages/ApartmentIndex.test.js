@@ -8,16 +8,16 @@ describe("<ApartmentIndex />", () => {
 
   it("renders without crashing", () => {
     const div = document.createElement("div")
-    render(<ApartmentIndex/>, div)
+    render(<ApartmentIndex />, div)
   })
 
   it("renders cards without crashing", () => {
-      const div = document.createElement("div")
-      render(<ApartmentIndex mockApartments={mockApartments} />, div)
-      mockApartments.forEach((apartment) => {
-        const apartmentStreet = screen.getByText(apartment.street)
-        screen.debug(apartmentStreet)
-        expect(apartmentStreet).toBeInTheDocument()
-      })
+    const div = document.createElement("div")
+    render(<ApartmentIndex mockApartments={mockApartments} />, div)
+    mockApartments.forEach((apartment) => {
+      const apartmentStreet = screen.getByText(apartment.street)
+      screen.debug(apartmentStreet)
+      expect(apartmentStreet).toBeInTheDocument()
     })
   })
+})
