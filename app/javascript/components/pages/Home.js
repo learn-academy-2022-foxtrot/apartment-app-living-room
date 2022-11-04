@@ -1,14 +1,13 @@
 import React from "react"
 
 const Home = (props) => {
-
   return (
     <>
       <h2>Welcome!</h2>
       <h3>Browse and view all available apartment listings</h3>
       {props.logged_in && (
         <>
-          <button> 
+          <button>
             <a href="/apartmentindex">My Listings</a>
           </button>
           <button>
