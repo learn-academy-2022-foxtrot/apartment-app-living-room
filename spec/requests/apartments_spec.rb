@@ -6,7 +6,7 @@ RSpec.describe "Apartments", type: :request do
   # -----index-----
   describe "GET /index" do
     it "gets all the apartments" do
-        apartment = user.apartments.new(
+      apartment = user.apartments.new(
         street: "124 Conch Street",
         city: "Bikini Bottom",
         state: "Pacific Ocean",
