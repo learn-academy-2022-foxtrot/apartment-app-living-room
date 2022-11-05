@@ -71,7 +71,7 @@ RSpec.describe "Apartments", type: :request do
 
   # -----destroy-----
   describe "DELETE /destroy" do
-    it "creates an apartment listing" do
+    it "deletes an apartment listing" do
       apartment_params = {
         apartment: {
           street: "Blender Bottle Blvd",
