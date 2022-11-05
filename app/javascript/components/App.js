@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react"
 import React, { useState, useEffect } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Footer from "./components/Footer"
@@ -28,6 +27,18 @@ const App = (props) => {
       .catch((error) => console.log(error))
   }
 
+  const deleteApartment = (id) => {
+    fetch(`http://localhost:3000/apartments/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+      .then((response) => response.json())
+      .then((data) => readApartments())
+      .catch((errors) => console.log("delete errors:", errors))
+  }
+
   return (
     <BrowserRouter>
       <Header {...props} />
@@ -35,7 +46,7 @@ const App = (props) => {
         <Route path="/protectedapartmentindex" element={ <ProtectedApartmentIndex mockApartments={mockApartments} {...props}/>} />
         <Route exact path="/" element={<Home {...props}/> } />
         <Route path="/apartmentindex" element={<ApartmentIndex mockApartments = {mockApartments}/>} />
-        <Route path="/apartmentshow" element={<ApartmentShow />} />
+        <Route path="/apartmentshow" element={<ApartmentShow deleteApartment = {deleteApartment}/>} />
         <Route path="/apartmentnew" element={<ApartmentNew />} />
         <Route path="/apartmentedit" element={<ApartmentEdit />} />
         <Route element={<NotFound />} />
