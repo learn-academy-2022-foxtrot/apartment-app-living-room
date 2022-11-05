@@ -6,39 +6,39 @@ import { NavLink } from "react-router-dom"
 
 const ApartmentShow = ({ mockApartments }) => {
   const { id } = useParams()
-  const currentApartment = mockApartments?.find((apartment) => apartment.id === +id)
+  let showApartment = mockApartments?.find((apartment) => apartment.id === +id)
   return (
     <>
       <h3>Apartment Show</h3>
       <div className="apartmentShowPage">
-        {currentApartment &&
+        {showApartment &&
           <Card
             style={{ width: "500px", height: "760px" }}
           >
-            <img src={currentApartment.image} alt="image is broken"/>
+            <img src={showApartment.image} alt="image is broken"/>
             <CardBody>
               <CardTitle tag="h5">
-               <p>Address: {currentApartment.street}, {currentApartment.city}, {currentApartment.state} </p>
+               <p>Address: {showApartment.street}, {showApartment.city}, {showApartment.state} </p>
               </CardTitle>
                 <CardSubtitle>
-                  <p>Manager: {currentApartment.manager}</p>
+                  <p>Manager: {showApartment.manager}</p>
                 </CardSubtitle>
                 <CardSubtitle>
-                  <p>Email: {currentApartment.email}</p>
+                  <p>Email: {showApartment.email}</p>
                 </CardSubtitle>
                 <CardSubtitle>
-                  <p>Price: {currentApartment.price}</p>
+                  <p>Price: {showApartment.price}</p>
                 </CardSubtitle>
                 <CardSubtitle>
-                  <p>Beds: {currentApartment.bedrooms}</p>
+                  <p>Beds: {showApartment.bedrooms}</p>
                 </CardSubtitle>
                 <CardSubtitle>
-                  <p>Bath: {currentApartment.bathrooms}</p>
+                  <p>Bath: {showApartment.bathrooms}</p>
                 </CardSubtitle>
                 <CardSubtitle>
-                  <p>Pets: {currentApartment.pets}</p>
+                  <p>Pets: {showApartment.pets}</p>
               </CardSubtitle>
-              <NavLink to="/apartmentindex">
+              <NavLink to="/apartmentindex/">
                   <Button>Back to listings</Button>
                   </NavLink>
             </CardBody>
