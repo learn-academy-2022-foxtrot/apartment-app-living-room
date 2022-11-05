@@ -33,6 +33,7 @@ RSpec.describe "Apartments", type: :request do
     end
   end
 
+  # -----create-----
   describe "POST /create" do
     it "creates an apartment listing" do
       apartment_params = {
@@ -68,6 +69,7 @@ RSpec.describe "Apartments", type: :request do
     end
   end
 
+ endpoints
   describe "PATCH /update" do
     it("updates an apartment listing") do
       apartment_params = {
@@ -82,13 +84,11 @@ RSpec.describe "Apartments", type: :request do
           bathrooms: 2,
           pets: "Yes",
           image: "https://images1.apartments.com/i2/Yky1WQudyLbF6tp5w8KxIe7dfIUFiuaC8wZPiio3-Tg/117/berkshire-winter-park-winter-park-fl-primary-photo.jpg",
-          user_id: user.id
-        }
-      }
 
       post "/apartments", params: apartment_params
       JSON.parse(response.body)
       apartment = Apartment.first
+ endpoints
       update_params = {
         apartment: {
           street: "Gunshine Street",
@@ -117,6 +117,30 @@ RSpec.describe "Apartments", type: :request do
       expect(apartment.bathrooms).to eq 2
       expect(apartment.pets).to eq "Yes"
       expect(apartment.image).to eq "https://images1.apartments.com/i2/Yky1WQudyLbF6tp5w8KxIe7dfIUFiuaC8wZPiio3-Tg/117/berkshire-winter-park-winter-park-fl-primary-photo.jpg"
+
+
+  # -----destroy-----
+  describe "DELETE /destroy" do
+    it "deletes an apartment listing" do
+      apartment_params = {
+        apartment: {
+          street: "Blender Bottle Blvd",
+          city: "Gainsville",
+          state: "Florida",
+          manager: "Rob Gains",
+          email: "gymislife@example.com",
+          price: "2,500",
+          bedrooms: 3,
+          bathrooms: 3,
+          pets: "Yes",
+          image: "https://img.zumpercdn.com/523001002/1280x960?fit=crop&h=135&w=414",
+ main
+          user_id: user.id
+        }
+      }
+      delete "/apartments/#{apartment.id}"
+      expect(response).to have_http_status(200)
+ main
     end
   end
 end
