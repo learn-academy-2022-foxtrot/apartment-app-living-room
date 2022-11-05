@@ -34,9 +34,9 @@ const App = (props) => {
       },
       method: "DELETE"
     })
-    .then((response) => response.json())
-    .then((data) => readApartments())
-    .catch((errors) => console.log("delete errors:", errors))
+      .then((response) => response.json())
+      .then((data) => readApartments())
+      .catch((errors) => console.log("delete errors:", errors))
   }
 
   return (

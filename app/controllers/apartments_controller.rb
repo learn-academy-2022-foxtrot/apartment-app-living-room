@@ -22,7 +22,7 @@ class ApartmentsController < ApplicationController
       render json: apartment
     else
       render json: apartment.errors,
-      status: 422
+        status: 422
     end
   end
 end
