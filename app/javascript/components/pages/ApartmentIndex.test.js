@@ -15,7 +15,6 @@ describe("<ApartmentIndex />", () => {
     render(<ApartmentIndex mockApartments={mockApartments} />, div)
     mockApartments.forEach((apartment) => {
       const apartmentStreet = screen.getByText(apartment.street)
-      screen.debug(apartmentStreet)
       expect(apartmentStreet).toBeInTheDocument()
     })
   })

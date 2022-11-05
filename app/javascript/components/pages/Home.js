@@ -8,7 +8,7 @@ const Home = (props) => {
       {props.logged_in && (
         <>
           <button>
-            <a href="/apartmentindex">My Listings</a>
+            <a href="/protectedapartmentindex">My Listings</a>
           </button>
           <button>
             <a href="/apartmentindex">View Listings</a>
@@ -18,7 +18,7 @@ const Home = (props) => {
       {!props.logged_in && (
         <>
           <button>
-              <a href={props.sign_in_route} >Sign In</a>
+            <a href={props.sign_in_route}>Sign In</a>
           </button>
           <button>
             <a href={props.new_user_route}>Sign Up</a>
