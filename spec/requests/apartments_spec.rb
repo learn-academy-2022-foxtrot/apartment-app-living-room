@@ -68,9 +68,9 @@ RSpec.describe "Apartments", type: :request do
     end
   end
 
-describe "PATCH /update" do
-  it ("updates an apartment listing") do
-    apartment_params = {
+  describe "PATCH /update" do
+    it("updates an apartment listing") do
+      apartment_params = {
         apartment: {
           street: "Tech Tampa Lane",
           city: "Tampa",
@@ -86,7 +86,7 @@ describe "PATCH /update" do
         }
       }
 
-      post '/apartments', params: apartment_params
+      post "/apartments", params: apartment_params
       JSON.parse(response.body)
       apartment = Apartment.first
       update_params = {
@@ -117,7 +117,6 @@ describe "PATCH /update" do
       expect(apartment.bathrooms).to eq 2
       expect(apartment.pets).to eq "Yes"
       expect(apartment.image).to eq "https://images1.apartments.com/i2/Yky1WQudyLbF6tp5w8KxIe7dfIUFiuaC8wZPiio3-Tg/117/berkshire-winter-park-winter-park-fl-primary-photo.jpg"
+    end
   end
-end
-
 end
