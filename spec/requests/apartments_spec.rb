@@ -33,6 +33,7 @@ RSpec.describe "Apartments", type: :request do
     end
   end
 
+  # -----create-----
   describe "POST /create" do
     it "creates an apartment listing" do
       apartment_params = {
@@ -67,4 +68,33 @@ RSpec.describe "Apartments", type: :request do
       expect(apartment.image).to eq "https://img.zumpercdn.com/523001002/1280x960?fit=crop&h=135&w=414"
     end
   end
+  
+  # -----destroy-----
+  describe "DELETE /destroy" do
+    it "creates an apartment listing" do
+      apartment_params = {
+        apartment: {
+          street: "Blender Bottle Blvd",
+          city: "Gainsville",
+          state: "Florida",
+          manager: "Rob Gains",
+          email: "gymislife@example.com",
+          price: "2,500",
+          bedrooms: 3,
+          bathrooms: 3,
+          pets: "Yes",
+          image: "https://img.zumpercdn.com/523001002/1280x960?fit=crop&h=135&w=414",
+          user_id: user.id
+        }
+      }
+
+      post "/apartments", params: apartment_params
+      JSON.parse(response.body)
+      apartment = Apartment.first
+      delete "/apartments/#{apartment.id}"
+      expect(response).to have_http_status(200)
+
+    end
+  end
+
 end
