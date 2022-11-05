@@ -31,8 +31,8 @@ const App = (props) => {
       <Header {...props} />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/apartmentindex" element={<ApartmentIndex mockApartments = {mockApartments}/>} />
-        <Route path="/apartmentshow" element={<ApartmentShow />} />
+        <Route path="/apartmentindex" element={<ApartmentIndex mockApartments = { mockApartments }/>} />
+        <Route path="/apartmentshow/:id" element={<ApartmentShow mockApartments = { mockApartments }/>} />
         <Route path="/apartmentnew" element={<ApartmentNew />} />
         <Route path="/apartmentedit" element={<ApartmentEdit />} />
         <Route element={<NotFound />} />

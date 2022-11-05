@@ -1,13 +1,14 @@
 import React from "react"
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap"
+import { NavLink } from "react-router-dom"
 
 const ApartmentIndex = ({ mockApartments }) => {
   return (
     <>
-    <div>
-      <h3 className="centerTitle">Cheap Apartments</h3>
-    </div>
-      <div className="centerThisHoe">
+      <div>
+        <h3 className="centerTitle">Cheap Apartments</h3>
+      </div>
+      <div className="centerListings">
         {mockApartments?.map((apartments, index) => {
           return (
             <>
@@ -29,9 +30,10 @@ const ApartmentIndex = ({ mockApartments }) => {
                     Bathrooms: {apartments.bathrooms}
                     <br />
                     Pets: {apartments.pets}
-
                   </CardSubtitle>
-                  <Button>See More Details</Button>
+                  <NavLink to={`/apartmentshow/${apartments.id}`}>
+                    <Button>See More Details</Button>
+                  </NavLink>
                 </CardBody>
               </Card>
             </>

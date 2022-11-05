@@ -1,5 +1,6 @@
 const apartments = [
   {
+    id: 1,
     street: "124 Conch Street",
     city: "Bikini Bottom",
     state: "Pacific Ocean",
@@ -13,6 +14,7 @@ const apartments = [
       "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/newscms/2016_38/1160015/pineapple-home-2-today-160919.jpg"
   },
   {
+    id: 2,
     street: "15 Tuna West",
     city: "Bikini Bottom",
     state: "Pacific Ocean",
@@ -26,6 +28,7 @@ const apartments = [
       "https://m.media-amazon.com/images/I/61fB3Nn7xpL._AC_SY1000_.jpg"
   },
   {
+    id: 3,
     street: "123 Conch Street",
     city: "Bikini Bottom",
     state: "Pacific Ocean",

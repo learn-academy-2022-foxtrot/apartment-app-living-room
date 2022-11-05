@@ -12,7 +12,10 @@ describe("<ApartmentIndex />", () => {
 
   it("renders cards without crashing", () => {
     const div = document.createElement("div")
-    render(<ApartmentIndex mockApartments={mockApartments} />, div)
+    render(
+      <BrowserRouter>
+        <ApartmentIndex mockApartments={mockApartments} />, div)
+      </BrowserRouter>
     mockApartments.forEach((apartment) => {
       const apartmentStreet = screen.getByText(apartment.street)
       screen.debug(apartmentStreet)
