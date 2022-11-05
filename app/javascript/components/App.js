@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react"
 import React, { useState, useEffect } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Footer from "./components/Footer"
@@ -32,9 +31,20 @@ const App = (props) => {
     <BrowserRouter>
       <Header {...props} />
       <Routes>
-        <Route path="/protectedapartmentindex" element={ <ProtectedApartmentIndex mockApartments={mockApartments} {...props}/>} />
-        <Route exact path="/" element={<Home {...props}/> } />
-        <Route path="/apartmentindex" element={<ApartmentIndex mockApartments = {mockApartments}/>} />
+        <Route
+          path="/protectedapartmentindex"
+          element={
+            <ProtectedApartmentIndex
+              mockApartments={mockApartments}
+              {...props}
+            />
+          }
+        />
+        <Route exact path="/" element={<Home {...props} />} />
+        <Route
+          path="/apartmentindex"
+          element={<ApartmentIndex mockApartments={mockApartments} />}
+        />
         <Route path="/apartmentshow" element={<ApartmentShow />} />
         <Route path="/apartmentnew" element={<ApartmentNew />} />
         <Route path="/apartmentedit" element={<ApartmentEdit />} />
