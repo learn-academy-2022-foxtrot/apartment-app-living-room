@@ -41,8 +41,7 @@ const ApartmentIndex = ({ mockApartments }) => {
               </CardBody>
             </Card>
           )
-        }
-        )}
+        })}
       </div>
     </>
   )

@@ -9,6 +9,7 @@ import ApartmentShow from "./pages/ApartmentShow"
 import Home from "./pages/Home"
 import NotFound from "./pages/NotFound"
 import mockApartments from "./mockApartments.js"
+import ProtectedApartmentIndex from "./pages/ProtectedApartmentIndex"
 
 const App = (props) => {
   const [apartments, setApartments] = useState([])
@@ -26,13 +27,26 @@ const App = (props) => {
       .catch((error) => console.log(error))
   }
 
+  const deleteApartment = (id) => {
+    fetch(`http://localhost:3000/apartments/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+      .then((response) => response.json())
+      .then((data) => readApartments())
+      .catch((errors) => console.log("delete errors:", errors))
+  }
+
   return (
     <BrowserRouter>
       <Header {...props} />
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/apartmentindex" element={<ApartmentIndex mockApartments = { mockApartments }/>} />
-        <Route path="/apartmentshow/:id" element={<ApartmentShow mockApartments = { mockApartments }/>} />
+        <Route path="/protectedapartmentindex" element={ <ProtectedApartmentIndex mockApartments={mockApartments} {...props}/>} />
+        <Route exact path="/" element={<Home {...props}/> } />
+        <Route path="/apartmentindex" element={<ApartmentIndex mockApartments = {mockApartments}/>} />
+        <Route path="/apartmentshow/id" element={<ApartmentShow deleteApartment = {deleteApartment}/>} />
         <Route path="/apartmentnew" element={<ApartmentNew />} />
         <Route path="/apartmentedit" element={<ApartmentEdit />} />
         <Route element={<NotFound />} />

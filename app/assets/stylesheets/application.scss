@@ -1,4 +1,12 @@
-@import 'bootstrap';
+@import "bootstrap";
+
+// You can add this class to anything that needs to use flex to align/justify items center as a column.
+.center-column-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
 .card {
     margin: 2rem 0;
@@ -18,3 +26,12 @@
     display: flex;
     justify-content: space-around;
   }
+=======
+  margin: 2rem 0;
+}
+
+.form-card {
+  width: 500px;
+  padding: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
