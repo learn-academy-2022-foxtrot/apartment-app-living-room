@@ -1,12 +1,10 @@
 import React from "react"
 import { useParams } from "react-router-dom"
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap"
-import { NavLink } from "react-router-dom"
-
 
 const ApartmentShow = ({ mockApartments }) => {
   const { id } = useParams()
-  let showApartment = mockApartments?.find((apartment) => apartment.id === +id)
+  const showApartment = mockApartments?.find((apartment) => apartment.id === +id)
   return (
     <>
       <h3>Apartment Show</h3>
@@ -15,32 +13,36 @@ const ApartmentShow = ({ mockApartments }) => {
           <Card
             style={{ width: "500px", height: "760px" }}
           >
-            <img src={showApartment.image} alt="image is broken"/>
+            <img src={showApartment.image} alt="image is broken" />
             <CardBody>
               <CardTitle tag="h5">
-               <p>Address: {showApartment.street}, {showApartment.city}, {showApartment.state} </p>
+                <p> Address: {showApartment.street} </p>
               </CardTitle>
-                <CardSubtitle>
-                  <p>Manager: {showApartment.manager}</p>
-                </CardSubtitle>
-                <CardSubtitle>
-                  <p>Email: {showApartment.email}</p>
-                </CardSubtitle>
-                <CardSubtitle>
-                  <p>Price: {showApartment.price}</p>
-                </CardSubtitle>
-                <CardSubtitle>
-                  <p>Beds: {showApartment.bedrooms}</p>
-                </CardSubtitle>
-                <CardSubtitle>
-                  <p>Bath: {showApartment.bathrooms}</p>
-                </CardSubtitle>
-                <CardSubtitle>
-                  <p>Pets: {showApartment.pets}</p>
+              <CardSubtitle>
+                <p>City: {showApartment.city}</p>
               </CardSubtitle>
-              <NavLink to="/apartmentindex/">
-                  <Button>Back to listings</Button>
-                  </NavLink>
+              <CardSubtitle>
+                <p>State: {showApartment.state}</p>
+              </CardSubtitle>
+              <CardSubtitle>
+                <p>Manager: {showApartment.manager}</p>
+              </CardSubtitle>
+              <CardSubtitle>
+                <p>Email: {showApartment.email}</p>
+              </CardSubtitle>
+              <CardSubtitle>
+                <p>Price: {showApartment.price}</p>
+              </CardSubtitle>
+              <CardSubtitle>
+                <p>Beds: {showApartment.bedrooms}</p>
+              </CardSubtitle>
+              <CardSubtitle>
+                <p>Bath: {showApartment.bathrooms}</p>
+              </CardSubtitle>
+              <CardSubtitle>
+                <p>Pets: {showApartment.pets}</p>
+              </CardSubtitle>
+                <Button>Back to listings</Button>
             </CardBody>
           </Card>
         }

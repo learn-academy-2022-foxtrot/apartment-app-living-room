@@ -1,6 +1,5 @@
 import React from "react"
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap"
-import { NavLink } from "react-router-dom"
 
 const ApartmentIndex = ({ mockApartments }) => {
   return (
@@ -11,32 +10,36 @@ const ApartmentIndex = ({ mockApartments }) => {
       <div className="centerListings">
         {mockApartments?.map((apartments, index) => {
           return (
-            <>
-              <Card style={{ width: "350px", height: "525px" }} key={index}>
-                <img alt="image not working bro" src={apartments.image} />
-                <CardBody>
-                  <CardTitle tag="h5">{apartments.street}</CardTitle>
-                  <CardSubtitle className="mb-2 text-muted" tag="h6">
+            <Card style={{ width: "350px", height: "625px" }} key={index}>
+              <img alt="image not working bro" src={apartments.image} />
+              <CardBody>
+                <CardTitle tag="h5">{apartments.street}</CardTitle>
+                <CardSubtitle className="mb-2 text-muted" tag="h6">
+                  <p>
                     City: {apartments.city}
-                    <br />
+                  </p>
+                  <p>
                     Manager: {apartments.manager}
-                    <br />
+                  </p>
+                  <p>
                     Email: {apartments.email}
-                    <br />
+                  </p>
+                  <p>
                     Price: {apartments.price}
-                    <br />
+                  </p>
+                  <p>
                     Bedrooms: {apartments.bedrooms}
-                    <br />
+                  </p>
+                  <p>
                     Bathrooms: {apartments.bathrooms}
-                    <br />
+                  </p>
+                  <p>
                     Pets: {apartments.pets}
-                  </CardSubtitle>
-                  <NavLink to={`/apartmentshow/${apartments.id}`}>
-                    <Button>See More Details</Button>
-                  </NavLink>
-                </CardBody>
-              </Card>
-            </>
+                  </p>
+                </CardSubtitle>
+                  <Button>See More Details</Button>
+              </CardBody>
+            </Card>
           )
         }
         )}
