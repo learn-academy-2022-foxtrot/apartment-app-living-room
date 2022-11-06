@@ -1,6 +1,5 @@
 const apartments = [
   {
-    id: 1,
     street: "124 Conch Street",
     city: "Bikini Bottom",
     state: "Pacific Ocean",
@@ -15,7 +14,6 @@ const apartments = [
     user_id: 1
   },
   {
-    id: 2,
     street: "15 Tuna West",
     city: "Bikini Bottom",
     state: "Pacific Ocean",
@@ -29,7 +27,6 @@ const apartments = [
     user_id: 2
   },
   {
-    id: 3,
     street: "123 Conch Street",
     city: "Bikini Bottom",
     state: "Pacific Ocean",
