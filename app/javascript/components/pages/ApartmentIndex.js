@@ -11,6 +11,7 @@ const ApartmentIndex = ({ mockApartments }) => {
         {mockApartments?.map((apartments, index) => {
           return (
             <Card style={{ width: "350px", height: "625px" }} key={index}>
+
               <img alt="image not working bro" src={apartments.image} />
               <CardBody>
                 <CardTitle tag="h5">{apartments.street}</CardTitle>
@@ -38,11 +39,11 @@ const ApartmentIndex = ({ mockApartments }) => {
                   </p>
                 </CardSubtitle>
                   <Button>See More Details</Button>
+
               </CardBody>
             </Card>
           )
-        }
-        )}
+        })}
       </div>
     </>
   )
