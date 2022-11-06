@@ -83,10 +83,15 @@ RSpec.describe "Apartments", type: :request do
           bathrooms: 2,
           pets: "Yes",
           image: "https://images1.apartments.com/i2/Yky1WQudyLbF6tp5w8KxIe7dfIUFiuaC8wZPiio3-Tg/117/berkshire-winter-park-winter-park-fl-primary-photo.jpg",
+          user_id: user.id
+        }
+      }
 
       post "/apartments", params: apartment_params
-      JSON.parse(response.body)
       apartment = Apartment.first
+      p "apartment", apartment
+      JSON.parse(response.body)
+
       update_params = {
         apartment: {
           street: "Gunshine Street",
@@ -102,6 +107,7 @@ RSpec.describe "Apartments", type: :request do
           user_id: user.id
         }
       }
+
       patch "/apartments/#{apartment.id}", params: update_params
       apartment = Apartment.first
       expect(response).to have_http_status(200)
@@ -136,6 +142,9 @@ RSpec.describe "Apartments", type: :request do
           user_id: user.id
         }
       }
+
+      post "/apartments", params: apartment_params
+      apartment = Apartment.first
       delete "/apartments/#{apartment.id}"
       expect(response).to have_http_status(200)
     end
