@@ -35,7 +35,7 @@ const App = (props) => {
       method: "DELETE"
     })
       .then((response) => response.json())
-      .then((data) => readApartments())
+      .then((payload) => readApartments())
       .catch((errors) => console.log("delete errors:", errors))
   }
 
@@ -46,9 +46,9 @@ const App = (props) => {
         <Route path="/protectedapartmentindex" element={ <ProtectedApartmentIndex mockApartments={mockApartments} {...props}/>} />
         <Route exact path="/" element={<Home {...props}/> } />
         <Route path="/apartmentindex" element={<ApartmentIndex mockApartments = {mockApartments}/>} />
-        <Route path="/apartmentshow/id" element={<ApartmentShow deleteApartment = {deleteApartment}/>} />
+        <Route path="/apartmentshow/:id" element={<ApartmentShow mockApartments = {mockApartments} deleteApartment = {deleteApartment}/>} />
         <Route path="/apartmentnew" element={<ApartmentNew />} />
-        <Route path="/apartmentedit" element={<ApartmentEdit />} />
+        <Route path="/apartmentedit/:id" element={<ApartmentEdit mockApartments = {mockApartments}/>} />
         <Route element={<NotFound />} />
       </Routes>
       <Footer />
