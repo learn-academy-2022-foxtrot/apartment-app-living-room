@@ -10,9 +10,7 @@ const ApartmentShow = ({ mockApartments }) => {
       <h3>Apartment Show</h3>
       <div className="apartmentShowPage">
         {showApartment &&
-          <Card
-            style={{ width: "500px", height: "760px" }}
-          >
+          <Card style={{ width: "500px", height: "760px" }}>
             <img src={showApartment.image} alt="image is broken" />
             <CardBody>
               <CardTitle tag="h5">
