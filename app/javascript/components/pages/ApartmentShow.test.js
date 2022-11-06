@@ -1,10 +1,19 @@
 import React from "react"
-import { render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import ApartmentShow from "./ApartmentShow"
+import mockApartments from "../mockApartments"
+import { MemoryRouter, Route, Routes } from "react-router-dom"
 
 describe("<ApartmentShow />", () => {
   it("renders without crashing", () => {
-    const div = document.createElement("div")
-    render(<ApartmentShow />, div)
+    render(
+      <MemoryRouter initialEntries={["/apartmentshow/1"]}>
+        <Routes>
+          <Route path="/apartmentShow/:id" element={<ApartmentShow mockApartments={ mockApartments }/>} />
+        </Routes>
+      </MemoryRouter>
+    )
+    const showRender = screen.getByText(/pets/i)
+    screen.debug(showRender)
   })
 })
