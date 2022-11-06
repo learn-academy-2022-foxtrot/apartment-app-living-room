@@ -9,25 +9,22 @@
 }
 
 .card {
-    margin: 2rem 0;
-  }
-  
-  .centerListings {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-
-  .centerTitle {
-    text-align: center;
-  }
-
-  .apartmentShowPage {
-    display: flex;
-    justify-content: space-around;
-  }
-=======
   margin: 2rem 0;
+}
+
+.centerListings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.centerTitle {
+  text-align: center;
+}
+
+.apartmentShowPage {
+  display: flex;
+  justify-content: space-around;
 }
 
 .form-card {
