@@ -61,7 +61,7 @@ const App = (props) => {
       method: "DELETE"
     })
       .then((response) => response.json())
-      .then((data) => readApartments())
+      .then((payload) => readApartments())
       .catch((errors) => console.log("delete errors:", errors))
   }
 
