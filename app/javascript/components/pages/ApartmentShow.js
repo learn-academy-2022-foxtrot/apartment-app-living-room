@@ -1,10 +1,11 @@
 import React from "react"
-import { useParams, NavLink } from "react-router-dom"
+import { useParams, NavLink, useNavigate } from "react-router-dom"
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap"
 
 const ApartmentShow = ({ mockApartments }) => {
   const { id } = useParams()
   const showApartment = mockApartments?.find((apartment) => apartment.id === +id)
+  const navigate = useNavigate()
   return (
     <>
       <h3>Apartment Show</h3>

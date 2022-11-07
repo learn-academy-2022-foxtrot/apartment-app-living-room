@@ -54,15 +54,15 @@ const App = (props) => {
 
   const deleteApartment = (id) => {
     console.log(id)
-    // fetch(`http://localhost:3000/apartments/${id}`, {
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   method: "DELETE",
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => readApartments())
-    //   .catch((errors) => console.log("delete errors:", errors))
+    fetch(`http://localhost:3000/apartments/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+      .then((response) => response.json())
+      .then((payload) => readApartments())
+      .catch((errors) => console.log("delete errors:", errors))
   }
 
   return (
@@ -95,7 +95,7 @@ const App = (props) => {
           }
         />
         <Route path="/apartmentnew" element={<ApartmentNew />} />
-        <Route path="/apartmentedit" element={<ApartmentEdit />} />
+        <Route path="/apartmentedit/:id" element={<ApartmentEdit mockApartments={mockApartments}/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
