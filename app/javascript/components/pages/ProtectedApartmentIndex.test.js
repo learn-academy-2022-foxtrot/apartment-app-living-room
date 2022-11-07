@@ -9,10 +9,12 @@ describe("<ApartmentIndex />", () => {
     const div = document.createElement("div")
     render(<ProtectedApartmentIndex />, div)
   })
-
   it("renders cards without crashing", () => {
-    const div = document.createElement("div")
-    render(<ProtectedApartmentIndex mockApartments={mockApartments} />, div)
+    render(
+      <BrowserRouter>
+        <ProtectedApartmentIndex mockApartments={mockApartments} />
+      </BrowserRouter>
+    )
     mockApartments.forEach((apartment) => {
       const apartmentStreet = screen.getByText(apartment.street)
       expect(apartmentStreet).toBeInTheDocument()

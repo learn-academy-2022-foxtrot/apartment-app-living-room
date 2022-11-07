@@ -1,5 +1,4 @@
 require "rails_helper"
-
 RSpec.describe "Apartments", type: :request do
   let(:user) { User.create email: "test@example.com", password: "password", password_confirmation: "password" }
 
@@ -141,7 +140,6 @@ RSpec.describe "Apartments", type: :request do
           user_id: user.id
         }
       }
-
       post "/apartments", params: apartment_params
       apartment = Apartment.first
       delete "/apartments/#{apartment.id}"

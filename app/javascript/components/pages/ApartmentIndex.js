@@ -1,5 +1,6 @@
 import React from "react"
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap"
+import { NavLink } from "react-router-dom"
 
 const ApartmentIndex = ({ mockApartments }) => {
   return (
@@ -37,7 +38,7 @@ const ApartmentIndex = ({ mockApartments }) => {
                     Pets: {apartments.pets}
                   </p>
                 </CardSubtitle>
-                  <Button>See More Details</Button>
+                <NavLink to={`/apartmentshow/${apartments.id}`} className="nav-link"> <Button>See More Details</Button></NavLink>
               </CardBody>
             </Card>
           )

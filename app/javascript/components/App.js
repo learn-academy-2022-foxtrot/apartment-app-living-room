@@ -83,10 +83,7 @@ const App = (props) => {
           path="/apartmentindex"
           element={<ApartmentIndex mockApartments={mockApartments} />}
         />
-        <Route
-          path="/apartmentshow/:id"
-          element={<ApartmentShow deleteApartment={deleteApartment} />}
-        />
+        <Route path="/apartmentshow/:id" element={<ApartmentShow deleteApartment={deleteApartment} mockApartments={mockApartments} />} />
         <Route
           path="/protectedapartmentshow/:id"
           element={
@@ -102,7 +99,7 @@ const App = (props) => {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </BrowserRouter >
   )
 }
 
