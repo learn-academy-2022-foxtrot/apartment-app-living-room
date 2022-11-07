@@ -2,7 +2,7 @@ require "rails_helper"
 ​
 RSpec.describe "Apartments", type: :request do
   let(:user) { User.create email: "test@example.com", password: "password", password_confirmation: "password" }
-​
+  ​
   # -----index-----
   describe "GET /index" do
     it "gets all the apartments" do
@@ -20,7 +20,7 @@ RSpec.describe "Apartments", type: :request do
       )
       apartment.save
       get "/apartments"
-​
+      ​
       apartments = JSON.parse(response.body)
       expect(apartments.length).to eq 1
       expect(response).to have_http_status(200)
@@ -32,7 +32,7 @@ RSpec.describe "Apartments", type: :request do
       expect(apartment["email"]).to eq "mjones@example.com"
     end
   end
-​
+  ​
   # -----create-----
   describe "POST /create" do
     it "creates an apartment listing" do
@@ -51,7 +51,7 @@ RSpec.describe "Apartments", type: :request do
           user_id: user.id
         }
       }
-​
+      ​
       post "/apartments", params: apartment_params
       JSON.parse(response.body)
       apartment = Apartment.first
@@ -68,7 +68,7 @@ RSpec.describe "Apartments", type: :request do
       expect(apartment.image).to eq "https://img.zumpercdn.com/523001002/1280x960?fit=crop&h=135&w=414"
     end
   end
-​
+  ​
   describe "PATCH /update" do
     it("updates an apartment listing") do
       apartment_params = {
@@ -86,11 +86,11 @@ RSpec.describe "Apartments", type: :request do
           user_id: user.id
         }
       }
-​
+      ​
       post "/apartments", params: apartment_params
       apartment = Apartment.first
       JSON.parse(response.body)
-​
+      ​
       update_params = {
         apartment: {
           street: "Gunshine Street",
@@ -106,7 +106,7 @@ RSpec.describe "Apartments", type: :request do
           user_id: user.id
         }
       }
-​
+      ​
       patch "/apartments/#{apartment.id}", params: update_params
       apartment = Apartment.first
       expect(response).to have_http_status(200)
@@ -122,7 +122,7 @@ RSpec.describe "Apartments", type: :request do
       expect(apartment.image).to eq "https://images1.apartments.com/i2/Yky1WQudyLbF6tp5w8KxIe7dfIUFiuaC8wZPiio3-Tg/117/berkshire-winter-park-winter-park-fl-primary-photo.jpg"
     end
   end
-​
+  ​
   # -----destroy-----
   describe "DELETE /destroy" do
     it "deletes an apartment listing" do
@@ -141,7 +141,7 @@ RSpec.describe "Apartments", type: :request do
           user_id: user.id
         }
       }
-​
+      ​
       post "/apartments", params: apartment_params
       apartment = Apartment.first
       delete "/apartments/#{apartment.id}"

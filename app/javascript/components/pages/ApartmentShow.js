@@ -1,7 +1,6 @@
 import React from "react"
-import { useParams } from "react-router-dom"
+import { useParams, NavLink } from "react-router-dom"
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap"
-import { NavLink } from "react-router-dom"
 
 const ApartmentShow = ({ mockApartments }) => {
   const { id } = useParams()

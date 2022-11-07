@@ -28,4 +28,3 @@ describe("<ApartmentShow />", () => {
     expect(navLink).toBeInTheDocument()
   })
 })
-
