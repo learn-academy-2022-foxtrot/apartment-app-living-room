@@ -6,6 +6,7 @@ import ApartmentEdit from "./pages/ApartmentEdit"
 import ApartmentIndex from "./pages/ApartmentIndex"
 import ApartmentNew from "./pages/ApartmentNew"
 import ApartmentShow from "./pages/ApartmentShow"
+import ProtectedApartmentShow from "./pages/ProtectedApartmentShow"
 import Home from "./pages/Home"
 import NotFound from "./pages/NotFound"
 import mockApartments from "./mockApartments.js"
@@ -28,25 +29,50 @@ const App = (props) => {
   }
 
   const deleteApartment = (id) => {
-    fetch(`http://localhost:3000/apartments/${id}`, {
-      headers: {
-        "Content-Type": "application/json"
-      },
-      method: "DELETE"
-    })
-      .then((response) => response.json())
-      .then((data) => readApartments())
-      .catch((errors) => console.log("delete errors:", errors))
+    console.log(id)
+    // fetch(`http://localhost:3000/apartments/${id}`, {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   method: "DELETE",
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => readApartments())
+    //   .catch((errors) => console.log("delete errors:", errors))
   }
 
   return (
     <BrowserRouter>
       <Header {...props} />
       <Routes>
-        <Route path="/protectedapartmentindex" element={ <ProtectedApartmentIndex mockApartments={mockApartments} {...props}/>} />
-        <Route exact path="/" element={<Home {...props}/> } />
-        <Route path="/apartmentindex" element={<ApartmentIndex mockApartments = {mockApartments}/>} />
-        <Route path="/apartmentshow/id" element={<ApartmentShow deleteApartment = {deleteApartment}/>} />
+        <Route
+          path="/protectedapartmentindex"
+          element={
+            <ProtectedApartmentIndex
+              mockApartments={mockApartments}
+              {...props}
+            />
+          }
+        />
+        <Route exact path="/" element={<Home {...props} />} />
+        <Route
+          path="/apartmentindex"
+          element={<ApartmentIndex mockApartments={mockApartments} />}
+        />
+        <Route
+          path="/apartmentshow/:id"
+          element={<ApartmentShow deleteApartment={deleteApartment} />}
+        />
+        <Route
+          path="/protectedapartmentshow/:id"
+          element={
+            <ProtectedApartmentShow
+              deleteApartment={deleteApartment}
+              mockApartments={mockApartments}
+              {...props}
+            />
+          }
+        />
         <Route path="/apartmentnew" element={<ApartmentNew />} />
         <Route path="/apartmentedit" element={<ApartmentEdit />} />
         <Route element={<NotFound />} />

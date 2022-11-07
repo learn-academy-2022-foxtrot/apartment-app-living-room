@@ -1,6 +1,6 @@
 import React from "react"
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap"
-import { useNavigate, useParams } from "react-router-dom"
+import NavLink, { useNavigate, useParams } from "react-router-dom"
 
 const ProtectedApartmentIndex = ({ mockApartments, current_user }) => {
   return (
@@ -26,7 +26,11 @@ const ProtectedApartmentIndex = ({ mockApartments, current_user }) => {
                     <p>Bathrooms: {apartment.bathrooms}</p>
                     <p>Pets: {apartment.pets}</p>
                   </CardSubtitle>
-                  <Button>See More Details</Button>
+                  <Button>
+                    <a href={`/protectedapartmentshow/${apartment.id}`}>
+                      See More Details
+                    </a>
+                  </Button>
                 </CardBody>
               </Card>
             )
