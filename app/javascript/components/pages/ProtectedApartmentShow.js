@@ -37,7 +37,7 @@ const ProtectedApartmentShow = ({
         apartment.
       </h4>
     )
-  } else {
+  } else if (current_user.id === showApartment.user_id) {
     return (
       <>
         <h3>Apartment Show</h3>

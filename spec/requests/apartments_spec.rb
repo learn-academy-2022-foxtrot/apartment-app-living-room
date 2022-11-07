@@ -89,7 +89,6 @@ RSpec.describe "Apartments", type: :request do
 
       post "/apartments", params: apartment_params
       apartment = Apartment.first
-      p "apartment", apartment
       JSON.parse(response.body)
 
       update_params = {
