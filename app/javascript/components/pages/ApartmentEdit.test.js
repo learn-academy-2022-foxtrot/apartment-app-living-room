@@ -7,8 +7,6 @@ describe("<ApartmentEdit />", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div")
     render(<ApartmentEdit />, div)
-    expect(screen.getByRole(""))
-    screen.debug()
   })
   it("renders the form text", () => {
     const div = document.createElement("div")
