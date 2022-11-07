@@ -50,7 +50,7 @@ RSpec.describe "Apartments", type: :request do
           user_id: user.id
         }
       }
-    
+
       post "/apartments", params: apartment_params
       JSON.parse(response.body)
       apartment = Apartment.first
@@ -85,11 +85,11 @@ RSpec.describe "Apartments", type: :request do
           user_id: user.id
         }
       }
-  
+
       post "/apartments", params: apartment_params
       apartment = Apartment.first
       JSON.parse(response.body)
-  
+
       update_params = {
         apartment: {
           street: "Gunshine Street",
@@ -105,7 +105,7 @@ RSpec.describe "Apartments", type: :request do
           user_id: user.id
         }
       }
-    
+
       patch "/apartments/#{apartment.id}", params: update_params
       apartment = Apartment.first
       expect(response).to have_http_status(200)
