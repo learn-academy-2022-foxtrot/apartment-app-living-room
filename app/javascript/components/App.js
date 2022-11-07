@@ -28,6 +28,17 @@ const App = (props) => {
       .catch((error) => console.log(error))
   }
 
+  const createApartment = (apartment) => {
+    fetch("http://localhost:3000/apartments", {
+      body: JSON.stringify(apartment),
+      headers: { "Content-Type": "application/json" },
+      method: "POST"
+    })
+      .then((response) => response.json())
+      .then(() => readApartments())
+      .catch((errors) => console.log("Aparment create errors:", errors))
+  }
+
   const deleteApartment = (id) => {
     console.log(id)
     // fetch(`http://localhost:3000/apartments/${id}`, {
