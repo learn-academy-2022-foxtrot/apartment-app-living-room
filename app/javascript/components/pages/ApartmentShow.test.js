@@ -9,11 +9,23 @@ describe("<ApartmentShow />", () => {
     render(
       <MemoryRouter initialEntries={["/apartmentshow/1"]}>
         <Routes>
-          <Route path="/apartmentShow/:id" element={<ApartmentShow mockApartments={ mockApartments }/>} />
+          <Route path="/apartmentShow/:id" element={<ApartmentShow mockApartments={mockApartments} />} />
         </Routes>
       </MemoryRouter>
     )
     const showRender = screen.getByText(/pets/i)
     screen.debug(showRender)
   })
+  it("NavLink exists", () => {
+    render(
+      <MemoryRouter initialEntries={["/apartmentshow/1"]}>
+        <Routes>
+          <Route path="/apartmentShow/:id" element={<ApartmentShow mockApartments={mockApartments} />} />
+        </Routes>
+      </MemoryRouter>
+    )
+    const navLink = screen.getByText("Go Back")
+    expect(navLink).toBeInTheDocument()
+  })
 })
+
