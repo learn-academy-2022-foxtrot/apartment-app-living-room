@@ -39,6 +39,19 @@ const App = (props) => {
       .catch((errors) => console.log("Aparment create errors:", errors))
   }
 
+  const updateApartment = (apartment, id) => {
+    fetch(`http://localhost:3000/apartments/${id}`, {
+      body: JSON.stringify(apartment),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+      .then((response) => response.json())
+      .then(() => readApartments())
+      .catch((errors) => console.log("Apartment Create Errors:", errors))
+  }
+
   const deleteApartment = (id) => {
     console.log(id)
     fetch(`http://localhost:3000/apartments/${id}`, {
@@ -70,10 +83,7 @@ const App = (props) => {
           path="/apartmentindex"
           element={<ApartmentIndex mockApartments={mockApartments} />}
         />
-        <Route
-          path="/apartmentshow/:id"
-          element={<ApartmentShow deleteApartment={deleteApartment} />}
-        />
+        <Route path="/apartmentshow/:id" element={<ApartmentShow deleteApartment={deleteApartment} mockApartments={mockApartments} />} />
         <Route
           path="/protectedapartmentshow/:id"
           element={
@@ -86,10 +96,10 @@ const App = (props) => {
         />
         <Route path="/apartmentnew" element={<ApartmentNew />} />
         <Route path="/apartmentedit/:id" element={<ApartmentEdit mockApartments={mockApartments}/>} />
-        <Route element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </BrowserRouter >
   )
 }
 
